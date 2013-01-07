@@ -44,7 +44,6 @@ BOARD_HAVE_SQN_WIMAX := true
 
 # Kernel Details
 TARGET_KERNEL_CONFIG := shooter_defconfig
-TARGET_PREBUILT_KERNEL := device/htc/shooter/prebuilt/kernel
 
 # -DQCOM_TUNNEL_LPA_ENABLED 
 TARGET_USES_QCOM_LPA := true
