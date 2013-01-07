@@ -1,11 +1,7 @@
 #
-# system.prop for device
+# system.prop for shooter
 #
 #
-debug.enabletr=false
-debug.sf.hw=1
-debug.composition.type=c2d
-ro.sf.compbypass.enable=0
 dev.pm.dyn_samplingrate=1
 lpa.use-stagefright=true
 lpa.decode=true
@@ -76,3 +72,7 @@ ro.qualcomm.cabl=1
 
 # Engineer ID
 ro.engineerid = 3
+
+# Sleep
+ro.ril.disable.power.collapse=0
+pm.sleep_mode=1
