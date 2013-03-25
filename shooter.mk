@@ -114,6 +114,7 @@ PRODUCT_PACKAGES += \
 # Goo
 PRODUCT_PROPERTY_OVERRIDES += \
      ro.goo.developerid=dastin1015 \
+     ro.goo.board=shooter \
      ro.goo.rom=WILD-FOR-THE-NIGHT \
      ro.goo.version=$(shell date +%Y%m%d%H%M%S)
 
