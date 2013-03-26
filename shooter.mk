@@ -111,13 +111,6 @@ PRODUCT_PACKAGES += \
     Torch \
     CellBroadcastReceiver
 
-# Goo
-PRODUCT_PROPERTY_OVERRIDES += \
-     ro.goo.developerid=dastin1015 \
-     ro.goo.board=shooter \
-     ro.goo.rom=WILD-FOR-THE-NIGHT \
-     ro.goo.version=$(shell date +%Y%m%d%H%M%S)
-
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
@@ -137,7 +130,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.com.google.clientidbase=android-sprint-us \
 	ro.com.google.locationfeatures=1 \
 	ro.cdma.home.operator.numeric=310120 \
-	ro.cdma.home.operator.alpha=Sprint
+	ro.cdma.home.operator.alpha=Sprint \
+        ro.goo.version=$(shell date +%Y%m%d%H%M%S)
 
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
