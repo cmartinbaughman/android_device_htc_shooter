@@ -125,13 +125,48 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml
 
+## CMB Stuff and Seeder etc
+PRODUCT_COPY_FILES += \
+    device/htc/shooter/prebuilt/bin/seeder:system/bin/seeder \
+    device/htc/shooter/prebuilt/etc/init.d/98seeding:system/etc/init.d/98seeding \
+    device/htc/shooter/prebuilt/xbin/rngd:system/xbin/rngd \
+    device/htc/shooter/prebuilt/xbin/entro:system/xbin/entro \
+    device/htc/shooter/prebuilt/app/AudioEffectService.apk:system/app/AudioEffectService.apk \
+    device/htc/shooter/prebuilt/app/SwiqiSettingsService.apk:system/app/SwiqiSettingsService.apk \
+    device/htc/shooter/prebuilt/etc/be_movie:system/etc/be_movie \
+    device/htc/shooter/prebuilt/etc/be_movie_setting:system/etc/be_movie_setting \
+    device/htc/shooter/prebuilt/etc/be2_album:system/etc/be2_album \
+    device/htc/shooter/prebuilt/etc/permissions/com.sonyericsson.audioeffectif.xml:system/etc/permissions/com.sonyericsson.audioeffectif.xml \
+    device/htc/shooter/prebuilt/etc/permissions/com.sonyericsson.uxp.xml:system/etc/permissions/com.sonyericsson.uxp.xml \
+    device/htc/shooter/prebuilt/etc/permissions/com.sonyericsson.uxpres.xml:system/etc/permissions/com.sonyericsson.uxpres.xml \
+    device/htc/shooter/prebuilt/framework/semc_audioeffectif.jar:system/framework/semc_audioeffectif.jar \
+    device/htc/shooter/prebuilt/framework/com.sonyericsson.uxpres.jar:system/framework/com.sonyericsson.uxpres.jar \
+    device/htc/shooter/prebuilt/lib/libswiqisettinghelper.so:system/lib/libswiqisettinghelper.so \
+    device/htc/shooter/prebuilt/lib/libmbe_paramselector.so:system/lib/libmbe_paramselector.so \
+    device/htc/shooter/prebuilt/lib/libmbe.so:system/lib/libmbe.so \
+    device/htc/shooter/prebuilt/lib/libaudioeffect_jni.so:system/lib/libaudioeffect_jni.so \
+    device/htc/shooter/prebuilt/lib/soundfx/libxloudwrapper.so:system/lib/soundfx/libxloudwrapper.so         
+
+# Kernel Modules
+ifneq ($(BUILD_KERNEL),true)
+    PRODUCT_COPY_FILES += $(shell \
+        find device/htc/shooter/prebuilt/kernel -name '*.ko' \
+        | sed -r 's/^\/?(.*\/)([^/ ]+)$$/\1\2:system\/lib\/modules\/\2/' \
+        | tr '\n' ' ')
+endif
+
 ## CDMA Sprint stuffs
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.com.google.clientidbase=android-sprint-us \
 	ro.com.google.locationfeatures=1 \
 	ro.cdma.home.operator.numeric=310120 \
 	ro.cdma.home.operator.alpha=Sprint \
-        ro.goo.version=$(shell date +%Y%m%d%H%M%S)
+	ro.service.swiqi2.supported=true \
+	persist.service.swiqi2.enable=1 \
+	ro.semc.sound_effects_enabled=true \
+	ro.semc.xloud.supported=true \
+	persist.service.xloud.enable=1 \
+       ro.goo.version=$(shell date +%Y%m%d%H%M%S)
 
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise

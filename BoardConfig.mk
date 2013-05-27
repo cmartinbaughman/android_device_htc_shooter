@@ -46,6 +46,12 @@ BOARD_HAVE_SQN_WIMAX := true
 
 # Kernel Details
 TARGET_KERNEL_CONFIG := shooter_defconfig
+TARGET_KERNEL_SOURCE := kernel/htc/shooter
+BUILD_KERNEL := true
+
+# Linaro
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := cmb-linaro-4.7.3
+#TARGET_KERNEL_CUSTOM_TOOLCHAIN_SUFFIX := arm-eabi
 
 # Camera
 TARGET_DISABLE_ARM_PIE := true

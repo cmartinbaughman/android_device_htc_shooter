@@ -15,7 +15,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=htc_shooter BUILD_FINGERPRINT="spri
 
 # Device naming
 PRODUCT_DEVICE := shooter
-PRODUCT_NAME := cm_shooter
+PRODUCT_NAME := pac_shooter
 PRODUCT_BRAND := sprint
 PRODUCT_MANUFACTURER := HTC
 PRODUCT_MODEL := Evo 3D CDMA
@@ -26,4 +26,4 @@ TARGET_SCREEN_WIDTH := 540
 
 # Release name
 PRODUCT_RELEASE_NAME := shooter
--include vendor/cm/config/common_versions.mk
+
