@@ -129,6 +129,9 @@ on boot
     chown system system /sys/class/leds/button-backlight/brightness
     chown system system /sys/class/leds/lcd-backlight/brightness
 
+    #PowerHal permissions
+    chown system /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
+
     # flashlight
     chown system camera /sys/class/leds/flashlight/brightness
     chmod 0660 /sys/class/leds/flashlight/brightness
