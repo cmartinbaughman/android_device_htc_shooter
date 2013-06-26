@@ -48,7 +48,7 @@ BOARD_HAVE_SQN_WIMAX := true
 
 # Kernel Details
 TARGET_KERNEL_CONFIG := shooter_defconfig
-TARGET_KERNEL_SOURCE := kernel/htc/shooter
+TARGET_KERNEL_SOURCE := kernel/htc/msm8660
 BUILD_KERNEL := true
 
 # Linaro
