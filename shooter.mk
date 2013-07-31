@@ -66,8 +66,8 @@ PRODUCT_COPY_FILES += \
     device/htc/shooter/dsp/soundimage/srsfx_trumedia_music.cfg:system/etc/soundimage/srsfx_trumedia_music.cfg
 
 # misc
-PRODUCT_COPY_FILES += \
-    device/htc/shooter/configs/vold.fstab:system/etc/vold.fstab
+#PRODUCT_COPY_FILES += \
+#   device/htc/shooter/configs/vold.fstab:system/etc/vold.fstab
 
 # Bluetooth firmware
 $(call inherit-product, device/htc/msm8660-common/bcm_hcd.mk)
