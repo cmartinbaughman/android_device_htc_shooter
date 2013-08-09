@@ -23,11 +23,11 @@ $(call inherit-product, device/htc/msm8660-common/msm8660.mk)
 DEVICE_PACKAGE_OVERLAYS += device/htc/shooter/overlay
 
 # ramdisk stuffs
-PRODUCT_COPY_FILES += \
-    device/htc/shooter/ramdisk/init.shooter.rc:root/init.shooter.rc \
-    device/htc/shooter/ramdisk/init.shooter.usb.rc:root/init.shooter.usb.rc \
-    device/htc/shooter/ramdisk/ueventd.shooter.rc:root/ueventd.shooter.rc \
-    device/htc/shooter/ramdisk/fstab.shooter:root/fstab.shooter
+PRODUCT_PACKAGES += \
+    fstab.shooter \
+    init.shooter.rc \
+    init.shooter.usb.rc \
+    ueventd.shooter.rc    
 
 ## recovery and custom charging
 PRODUCT_COPY_FILES += \
@@ -64,10 +64,6 @@ PRODUCT_COPY_FILES += \
     device/htc/shooter/dsp/soundimage/srsfx_trumedia_51.cfg:system/etc/soundimage/srsfx_trumedia_51.cfg \
     device/htc/shooter/dsp/soundimage/srsfx_trumedia_movie.cfg:system/etc/soundimage/srsfx_trumedia_movie.cfg \
     device/htc/shooter/dsp/soundimage/srsfx_trumedia_music.cfg:system/etc/soundimage/srsfx_trumedia_music.cfg
-
-# misc
-#PRODUCT_COPY_FILES += \
-#   device/htc/shooter/configs/vold.fstab:system/etc/vold.fstab
 
 # Bluetooth firmware
 $(call inherit-product, device/htc/msm8660-common/bcm_hcd.mk)

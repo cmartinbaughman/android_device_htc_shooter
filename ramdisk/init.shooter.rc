@@ -1,7 +1,6 @@
 import init.shooter.usb.rc
 
 on early-init
-    mkdir /storage 0050 system sdcard_r
     mkdir /storage/sdcard0 0000 system system
     mkdir /storage/usbdisk 0000 system system
 
@@ -85,6 +84,9 @@ on boot
     chown system system /sys/devices/platform/msm_sdcc.2/polling
     chown system system /sys/devices/platform/msm_sdcc.3/polling
     chown system system /sys/devices/platform/msm_sdcc.4/polling
+
+    # Needed in 4.3
+    chmod 0644 /proc/cmdline
 
     # bluetooth power up/down interface
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
